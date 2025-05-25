@@ -1,38 +1,72 @@
-.App {
-  text-align: center;
+/* src/App.css */
+/* src/App.css */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html, body, #root, .App {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  font-family: sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Fixed header in top-left */
+.site-header {
+  position: fixed;        /* keep it at the top */
+  top: 0;
+  left: 0;
+  width: 100vw;           /* full width */
+  height: 60px;
+  background-color: #f9f9f9;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
+  padding: 0 1rem;
+  z-index: 1000;
+}
+
+.site-header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.site-header a {
+  text-decoration: none;
+  color: #333;
+  font-family: "Funnel Display", sans-serif;
+  font-size: 3rem;
+}
+
+.fullscreen-container {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  height: 100vh; /* full screen minus header */
+  padding-top: 60px;          /* offset for fixed header, optional if you use height calc */
+  box-sizing: border-box;
+  background-color: #f9f9f9;
 }
 
-.App-link {
-  color: #61dafb;
+.photo {
+  max-width: 80vw;  /* limits width on small screens */
+  max-height: 80vh;
+  transition: opacity 0.5s ease-in-out;
+  display: block;
+  cursor: pointer;
+  margin: auto;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  object-fit: contain;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.fade-in {
+  opacity: 1;
+}
+
+.fade-out {
+  opacity: 0;
 }
